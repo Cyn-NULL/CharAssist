@@ -16,8 +16,6 @@
     --line:rgba(24,25,32,0.09);
     --accent:#4a6cf7;
     --accent-2:#7fa0ff;
-    --highlight:#d7f28d;
-    --highlight-ink:#3c4a12;
     --radius-lg:28px;
     --radius-md:18px;
     --radius-sm:12px;
@@ -37,7 +35,7 @@
     min-height:100vh;
   }
 
-  .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 100px;}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 24px 100px;}
 
   /* ---------- Hero ---------- */
   .hero{
@@ -47,6 +45,7 @@
     border-radius:var(--radius-lg);
     padding:52px 56px 48px;
     box-shadow:0 20px 60px -30px rgba(30,30,50,0.35);
+    margin-bottom:24px;
   }
   .hero-badge{
     display:inline-flex;align-items:center;gap:10px;
@@ -78,50 +77,27 @@
     font-weight:500;
     font-size:20px;
     color:var(--ink);
-    margin:0 0 20px;
+    margin:0 0 14px;
   }
   .desc{
-    max-width:620px;
+    max-width:660px;
     color:var(--muted);
     font-size:15.5px;
     line-height:1.7;
     margin:0;
   }
-  .hero-meta{
-    display:flex;gap:28px;margin-top:34px;flex-wrap:wrap;
-  }
-  .hero-meta div{
-    font-size:12.5px;color:var(--muted-2);
-    font-family:'JetBrains Mono',monospace;
-  }
-  .hero-meta strong{
-    display:block;color:var(--ink);font-family:'Space Grotesk',sans-serif;
-    font-size:15px;font-weight:700;margin-bottom:2px;
-  }
 
-  /* ---------- Layout ---------- */
-  .layout{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-    margin-top:24px;
-    align-items:start;
-  }
-  @media (max-width:980px){
-    .layout{grid-template-columns:1fr;}
-  }
-
-  /* ---------- Main content ---------- */
-  section{margin-bottom:36px;}
+  /* ---------- Section card ---------- */
   .section-card{
     background:var(--card);
     border:1px solid rgba(255,255,255,0.7);
     border-radius:var(--radius-md);
     backdrop-filter:blur(14px);
     overflow:hidden;
+    margin-bottom:20px;
   }
   .section-head{
-    padding:22px 26px 4px;
+    padding:26px 28px 6px;
   }
   .section-head h2{
     font-family:'Space Grotesk',sans-serif;
@@ -131,34 +107,84 @@
     color:var(--muted);font-size:13.5px;margin:0 0 14px;
   }
 
-  /* feature rows */
-  .row{
-    display:flex;gap:14px;align-items:flex-start;
-    padding:16px 26px;
-    border-top:1px solid var(--line);
+  /* ---------- Feature grid ---------- */
+  .feat-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:1px;
+    background:var(--line);
   }
-  .row .icon{
+  .feat-cell{
+    background:rgba(255,255,255,0.45);
+    padding:20px 22px;
+    display:flex;gap:14px;align-items:flex-start;
+    transition:background .15s;
+  }
+  .feat-cell:hover{background:rgba(255,255,255,0.72);}
+  .feat-cell .icon{
     width:34px;height:34px;border-radius:9px;
     background:rgba(74,108,247,0.1);
     display:flex;align-items:center;justify-content:center;
     font-size:16px;flex:none;margin-top:2px;
   }
-  .row h3{
-    font-size:14.5px;font-weight:600;margin:0 0 4px;
-  }
-  .row p{
-    font-size:13.5px;color:var(--muted);line-height:1.6;margin:0;
+  .feat-cell h3{font-size:14px;font-weight:600;margin:0 0 4px;}
+  .feat-cell p{font-size:13px;color:var(--muted);line-height:1.6;margin:0;}
+  .new-tag{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;font-weight:500;letter-spacing:.04em;
+    color:var(--accent);
+    background:rgba(74,108,247,0.1);
+    border:1px solid rgba(74,108,247,0.25);
+    border-radius:4px;padding:1px 6px;
+    margin-bottom:5px;
   }
 
-  /* steps accordion */
-  details.step{
-    border-top:1px solid var(--line);
+  /* ---------- Tab grid ---------- */
+  .tab-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
   }
+  @media(max-width:600px){.tab-grid{grid-template-columns:1fr;}}
+  .tab-cell{
+    background:rgba(255,255,255,0.45);
+    padding:22px 24px;
+    transition:background .15s;
+  }
+  .tab-cell:hover{background:rgba(255,255,255,0.68);}
+  .tab-cell.full{grid-column:1/-1;}
+  .tab-cell.accent-cell{background:rgba(74,108,247,0.06);}
+  .tab-cell.accent-cell:hover{background:rgba(74,108,247,0.11);}
+  .tab-label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14px;font-weight:700;
+    margin-bottom:10px;
+  }
+  .tab-cell p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 10px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;padding:3px 9px;border-radius:999px;
+    background:rgba(255,255,255,0.7);border:1px solid var(--line);
+    color:var(--ink);
+  }
+  .pill.blue{
+    background:rgba(74,108,247,0.08);
+    border-color:rgba(74,108,247,0.2);
+    color:var(--accent);
+  }
+
+  /* ---------- Steps accordion ---------- */
+  details.step{border-top:1px solid var(--line);}
   details.step summary{
     list-style:none;cursor:pointer;
     display:flex;align-items:center;gap:14px;
-    padding:16px 26px;
+    padding:16px 28px;
     font-size:14.5px;font-weight:600;
+    user-select:none;
   }
   details.step summary::-webkit-details-marker{display:none;}
   details.step summary .num{
@@ -175,31 +201,42 @@
   }
   details.step[open] summary .chev{transform:rotate(180deg);}
   details.step .body{
-    padding:0 26px 20px 66px;
+    padding:0 28px 20px 68px;
     font-size:13.5px;color:var(--muted);line-height:1.7;
   }
-
-  /* tips */
-  .tip-list{padding:16px 26px 22px;}
-  .tip-list li{
-    font-size:13.5px;color:var(--muted);line-height:1.7;
-    margin-bottom:8px;
+  details.step .body code{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    background:rgba(74,108,247,0.08);border-radius:4px;
+    padding:1px 6px;color:var(--accent);
   }
 
-  /* provider chips */
-  .chip-row{padding:4px 26px 22px;display:flex;gap:8px;flex-wrap:wrap;}
+  /* ---------- Tips ---------- */
+  .tip-list{padding:4px 0 6px;}
+  .tip{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 28px;
+    border-top:1px solid var(--line);
+  }
+  .tip .t-icon{font-size:16px;flex-shrink:0;padding-top:2px;}
+  .tip p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0;}
+  .tip p strong{color:var(--ink);}
+  .tip p code{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    background:rgba(74,108,247,0.08);border-radius:4px;
+    padding:1px 6px;color:var(--accent);
+  }
+
+  /* ---------- Provider chips ---------- */
+  .chip-row{padding:4px 28px 24px;display:flex;gap:8px;flex-wrap:wrap;}
   .chip{
     font-family:'JetBrains Mono',monospace;
-    font-size:12px;padding:6px 12px;border-radius:999px;
+    font-size:12px;padding:6px 14px;border-radius:999px;
     background:rgba(255,255,255,0.7);border:1px solid var(--line);
     color:var(--ink);
   }
 
-  /* ---------- Download CTA ---------- */
-  .download-section{
-    text-align:center;
-    margin-top:20px;
-  }
+  /* ---------- Download ---------- */
+  .download-section{text-align:center;margin-top:16px;}
   .download-btn{
     display:inline-flex;align-items:center;gap:10px;
     font-family:'Space Grotesk',sans-serif;
@@ -210,7 +247,7 @@
     border-radius:999px;
     text-decoration:none;
     box-shadow:0 16px 34px -14px rgba(74,108,247,0.6);
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .15s ease,box-shadow .15s ease;
   }
   .download-btn:hover{
     transform:translateY(-2px);
@@ -226,6 +263,11 @@
     font-size:12px;color:var(--muted-2);
     font-family:'JetBrains Mono',monospace;
   }
+
+  @media(max-width:640px){
+    .hero{padding:36px 26px 32px;}
+    .feat-grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
@@ -236,164 +278,305 @@
     <div class="hero-badge"><span class="dot">🛠️</span> RisuAI Plugin · CharAssist</div>
     <h1 class="title">CharAssist</h1>
     <p class="tagline">AI가 다듬고, 당신이 결정한다.</p>
-    <p class="desc">캐릭터의 설명(Description), 로어북, 정규식, 트리거를 AI와 함께 지능적으로 수정하고 관리할 수 있도록 돕는 전문 편집 도구입니다. 무엇이 바뀌었는지 한눈에 보여주고, 마음에 들지 않으면 언제든 되돌릴 수 있습니다.</p>
+    <p class="desc">캐릭터 설명, 로어북, 정규식, 트리거, 페르소나까지 — AI와 함께 편집하고, 바뀐 부분을 한눈에 확인하고, 언제든 되돌릴 수 있습니다.</p>
   </div>
 
-  <!-- LAYOUT -->
-  <div class="layout">
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-card">
+      <div class="section-head">
+        <h2>주요 기능</h2>
+        <p>편집부터 검토, 되돌리기까지 하나의 흐름으로.</p>
+      </div>
+      <div class="feat-grid">
 
-    <!-- MAIN -->
-    <main>
-
-      <!-- FEATURES -->
-      <section id="features">
-        <div class="section-card">
-          <div class="section-head">
-            <h2>주요 기능</h2>
-            <p>편집부터 검토, 되돌리기까지 하나의 흐름으로.</p>
-          </div>
-
-          <div class="row">
-            <div class="icon">🗂️</div>
-            <div><h3>4개 탭에서 관리</h3>
-            <p>캐릭터 설명, 로어북 항목, 정규식 스크립트, 트리거 스크립트를 각각의 탭에서 관리합니다. 원본을 먼저 확인하고, 원하는 방향을 요청하고, AI가 다듬은 결과를 검토한 뒤 적용합니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">🖍</div>
-            <div><h3>바뀐 부분이 한눈에 보이는 하이라이트</h3>
-            <p>AI가 손을 댄 부분은 형광펜으로 칠한 것처럼 표시됩니다. 결과 전체를 처음부터 다시 읽지 않아도, 무엇이 달라졌는지 바로 파악할 수 있습니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">↩️</div>
-            <div><h3>되돌리기</h3>
-            <p>적용은 늘 되돌릴 수 있습니다. 마음에 들지 않으면 한 번의 클릭으로 적용 이전 상태로 복원됩니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">💾</div>
-            <div><h3>작업 내용 보존</h3>
-            <p>창을 닫아도 AI가 만든 결과와 입력했던 요청사항은 사라지지 않습니다. 나중에 다시 열어 이어서 검토할 수 있습니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">⭐</div>
-            <div><h3>즐겨찾는 요청 문구</h3>
-            <p>자주 쓰는 요청("더 신비롭게", "간결하게 다듬어줘" 등)을 즐겨찾기에 저장해두고 어느 탭에서든 바로 불러와 씁니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">➕</div>
-            <div><h3>새 항목 만들기</h3>
-            <p>로어북·정규식·트리거는 빈 항목을 만들고 원하는 내용을 요청하면, AI가 처음부터 초안을 작성해줍니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">🔌</div>
-            <div><h3>여러 AI 공급자 지원</h3>
-            <p>Cerebras, Google AI Studio(Gemini), Vertex AI 중에서 선택할 수 있고, 모델명은 직접 입력할 수 있어 최신 모델이 나와도 바로 사용할 수 있습니다.</p></div>
-          </div>
-
-          <div class="row">
-            <div class="icon">📌</div>
-            <div><h3>참고범위 지정</h3>
-            <p>설명을 고칠 때 로어북 내용을 참고하게 하는 등, 다른 영역의 정보를 함께 참고하도록 범위를 지정할 수 있습니다. 일관성 있는 결과를 얻는 데 도움이 됩니다.</p></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- GETTING STARTED -->
-      <section id="start">
-        <div class="section-card">
-          <div class="section-head">
-            <h2>시작하기</h2>
-            <p>순서대로 눌러서 진행하세요. 각 단계를 펼치면 자세한 설명이 나옵니다.</p>
-          </div>
-
-          <details class="step" open>
-            <summary><span class="num">1</span>열기<span class="chev">▾</span></summary>
-            <div class="body">채팅 화면 메뉴의 🛠️ CharAssist 또는 플러그인 설정 목록의 CharAssist Settings를 누르면 창이 열립니다.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">2</span>AI 공급자 설정<span class="chev">▾</span></summary>
-            <div class="body">사이드바의 ⚙️ 설정에서 사용할 공급자를 고르고 정보를 입력합니다. 모델명은 자유롭게 입력할 수 있습니다. 입력 후 🔌 연결 테스트로 바로 작동 여부를 확인해보세요.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">3</span>캐릭터 선택<span class="chev">▾</span></summary>
-            <div class="body">사이드바 하단에서 캐릭터를 고릅니다. 기본값인 자동 감지는 RisuAI에서 현재 열어둔 캐릭터를 그대로 따라갑니다. 특정 캐릭터로 고정하고 싶다면 목록에서 직접 선택하세요.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">4</span>원하는 항목 편집<span class="chev">▾</span></summary>
-            <div class="body">사이드바에서 설명 / 로어북 / 정규식 / 트리거 중 하나를 선택합니다. (로어북·정규식·트리거는) 편집할 항목을 목록에서 고르거나, ➕ 새 항목으로 새로 만듭니다.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">5</span>요청사항 작성<span class="chev">▾</span></summary>
-            <div class="body">원하는 방향을 요청사항에 적습니다. 비워두면 전반적인 품질 개선을 요청합니다. ✨ AI 실행을 누릅니다.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">6</span>결과 확인<span class="chev">▾</span></summary>
-            <div class="body">🖍 변경 부분 보기로 달라진 곳만 따로 볼 수 있고, 텍스트박스에서 직접 다듬을 수도 있습니다.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">7</span>적용하기<span class="chev">▾</span></summary>
-            <div class="body">마음에 들면 ✅ 캐릭터에 바로 적용을 누릅니다. 생각이 바뀌면 ↩️ 되돌리기로 언제든 이전 상태로 복원할 수 있습니다.</div>
-          </details>
-
-          <details class="step">
-            <summary><span class="num">8</span>참고범위로 일관성 챙기기<span class="chev">▾</span></summary>
-            <div class="body">사이드바 하단 📌 참고범위에서 체크한 항목은, 다른 항목을 편집할 때 함께 참고됩니다. 예를 들어 설명과 로어북을 함께 체크해두면, 로어북을 고칠 때 캐릭터 설명과 어긋나지 않도록 AI가 참고합니다.</div>
-          </details>
-
-        </div>
-      </section>
-
-      <!-- TIPS -->
-      <section id="tips">
-        <div class="section-card">
-          <div class="section-head">
-            <h2>팁</h2>
-            <p>알아두면 더 편해지는 것들.</p>
-          </div>
-          <ul class="tip-list">
-            <li>요청사항 입력창 옆 ⭐ 저장으로 자주 쓰는 문구를 즐겨찾기에 등록해두면 다음부터는 드롭다운에서 바로 고를 수 있습니다.</li>
-            <li>정규식·트리거는 JSON 형태로 표시됩니다. AI 결과도 JSON을 유지하니, 최종 적용 전에 형식이 올바른지 한 번 확인해주세요.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- PROVIDERS -->
-      <section id="providers">
-        <div class="section-card">
-          <div class="section-head">
-            <h2>지원 공급자</h2>
-            <p>원하는 AI 공급자를 선택하고, 모델명은 직접 입력할 수 있습니다.</p>
-          </div>
-          <div class="chip-row">
-            <span class="chip">Cerebras</span>
-            <span class="chip">Google AI Studio (Gemini)</span>
-            <span class="chip">Vertex AI</span>
+        <div class="feat-cell">
+          <div class="icon">🖍</div>
+          <div>
+            <h3>바뀐 부분 하이라이트</h3>
+            <p>AI가 손댄 곳만 형광펜으로 표시됩니다. 전체를 다시 읽지 않아도 무엇이 달라졌는지 바로 파악할 수 있습니다.</p>
           </div>
         </div>
-      </section>
 
-    </main>
+        <div class="feat-cell">
+          <div class="icon">↩️</div>
+          <div>
+            <h3>언제든 되돌리기</h3>
+            <p>적용한 뒤에도 한 번의 클릭으로 직전 상태로 복원됩니다. 실수가 두렵지 않습니다.</p>
+          </div>
+        </div>
 
-  </div>
+        <div class="feat-cell">
+          <div class="icon">💾</div>
+          <div>
+            <h3>작업 내용 자동 보존</h3>
+            <p>창을 닫아도 AI 결과와 요청사항이 저장됩니다. 나중에 열어 이어서 검토할 수 있습니다.</p>
+          </div>
+        </div>
 
+        <div class="feat-cell">
+          <div class="icon">✨</div>
+          <div>
+            <h3>이어서 개선 모드</h3>
+            <p>AI 결과를 바탕으로 추가 요청을 입력하면 계속 다듬을 수 있습니다. 처음부터 다시 시작할 필요 없습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">🎭</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>페르소나 생성</h3>
+            <p>장르·힌트·기본 정보를 입력하면 AI가 캐릭터에 맞는 유저 페르소나를 창작합니다. 기본·심화 두 가지 프리셋 제공.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">📋</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>캐릭터 프리셋</h3>
+            <p>상호작용형·자기소개형 시트 프리셋을 선택하거나 직접 만들어 설명 생성의 출력 형식을 통일할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">🌐</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>영문 번역</h3>
+            <p>원본이나 AI 결과를 한 번에 영문으로 번역합니다. 번역 결과를 직접 캐릭터에 덮어쓰거나 복사할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">👤</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>기본정보 오버라이드</h3>
+            <p>이름·나이·성별·장르를 직접 지정하면 AI가 설명 생성 시 해당 정보를 최우선으로 반영합니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">⭐</div>
+          <div>
+            <h3>즐겨찾는 요청 문구</h3>
+            <p>자주 쓰는 요청을 저장해두면 드롭다운에서 바로 선택할 수 있습니다. 모든 탭에서 공유됩니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">📌</div>
+          <div>
+            <h3>참고범위 지정</h3>
+            <p>로어북 편집 시 설명을 함께 참고하게 하는 등, 다른 영역을 컨텍스트로 포함해 일관성 있는 결과를 얻을 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">🔌</div>
+          <div>
+            <h3>멀티 AI 공급자</h3>
+            <p>Cerebras, Gemini, Vertex AI 중 선택. 모델명을 직접 입력해 최신 모델도 바로 사용할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="icon">➕</div>
+          <div>
+            <h3>새 항목 만들기</h3>
+            <p>로어북·정규식·트리거를 빈 상태로 추가하고 요청하면 AI가 처음부터 초안을 작성합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <section id="tabs">
+    <div class="section-card">
+      <div class="section-head">
+        <h2>다섯 개의 탭, 하나의 캐릭터.</h2>
+        <p>각 탭은 독립적으로 동작하지만 참고범위로 서로 연결됩니다.</p>
+      </div>
+      <div class="tab-grid">
+
+        <div class="tab-cell">
+          <div class="tab-label">👤 설명</div>
+          <p>캐릭터의 description 필드를 AI로 다듬습니다. 이름·나이·성별·장르를 지정해 방향을 잡고, 캐릭터 프리셋으로 출력 형식을 통일할 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">이어서 개선</span>
+            <span class="pill">영문 번역</span>
+            <span class="pill">캐릭터 프리셋</span>
+            <span class="pill">장르 선택</span>
+          </div>
+        </div>
+
+        <div class="tab-cell">
+          <div class="tab-label">📖 로어북</div>
+          <p>로어북 항목을 선택하거나 새로 만들어 AI로 내용을 작성·보완합니다. 다른 항목과의 일관성을 참고범위로 유지할 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">항목 생성</span>
+            <span class="pill">영문 번역</span>
+            <span class="pill">폴더 제외</span>
+          </div>
+        </div>
+
+        <div class="tab-cell">
+          <div class="tab-label">🧩 정규식</div>
+          <p>정규식 스크립트를 JSON 형태로 확인하고 AI로 패턴을 최적화합니다. 구조는 유지한 채 값만 교체합니다.</p>
+          <div class="pill-row">
+            <span class="pill">JSON 편집</span>
+            <span class="pill">패턴 최적화</span>
+          </div>
+        </div>
+
+        <div class="tab-cell">
+          <div class="tab-label">⚡ 트리거</div>
+          <p>Lua / V1 / V2 타입을 자동으로 감지합니다. 조건과 효과를 AI로 수정하거나 새 트리거를 처음부터 만들 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">Lua 지원</span>
+            <span class="pill">타입 자동 감지</span>
+            <span class="pill">새 트리거 생성</span>
+          </div>
+        </div>
+
+        <div class="tab-cell full accent-cell">
+          <div class="tab-label">🎭 페르소나 <span class="pill blue" style="font-size:10px;padding:2px 7px;margin-left:2px;">NEW</span></div>
+          <p>캐릭터 설명을 분석해 유저 페르소나를 AI로 창작합니다. 장르(일상·로맨스·판타지 등 12종), 컨셉 힌트, 이름·나이·성별을 지정하거나 AI에게 자유롭게 맡길 수 있습니다. 기본 프리셋과 심화 프리셋(상세 시트) 중 선택하거나, 설정에서 직접 만들 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">장르 12종</span>
+            <span class="pill">컨셉 힌트</span>
+            <span class="pill">기본·심화 프리셋</span>
+            <span class="pill">이어서 개선</span>
+            <span class="pill">영문 번역</span>
+            <span class="pill">클립보드 복사</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section id="start">
+    <div class="section-card">
+      <div class="section-head">
+        <h2>시작하기</h2>
+        <p>순서대로 눌러서 진행하세요. 각 단계를 펼치면 자세한 설명이 나옵니다.</p>
+      </div>
+
+      <details class="step" open>
+        <summary><span class="num">1</span>플러그인 설치<span class="chev">▾</span></summary>
+        <div class="body">다운로드한 <code>CharAssist.js</code> 파일을 RisuAI 플러그인 설정에서 가져오기로 불러옵니다. 채팅 화면 메뉴의 🛠️ CharAssist 버튼 또는 플러그인 목록의 CharAssist Settings를 눌러 창을 엽니다.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">2</span>AI 공급자 설정<span class="chev">▾</span></summary>
+        <div class="body">사이드바 ⚙️ 설정에서 공급자(Cerebras · Gemini · Vertex AI)를 고르고 API 키와 모델명을 입력합니다. 입력 후 🔌 연결 테스트로 즉시 확인하세요.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">3</span>캐릭터 선택<span class="chev">▾</span></summary>
+        <div class="body">사이드바 하단 캐릭터 드롭다운에서 편집할 캐릭터를 고릅니다. 기본값인 자동 감지는 RisuAI에서 현재 열어둔 캐릭터를 따라갑니다. 폴더 안의 캐릭터도 목록에 표시됩니다.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">4</span>탭 선택 후 항목 고르기<span class="chev">▾</span></summary>
+        <div class="body">설명 · 로어북 · 정규식 · 트리거 · 페르소나 탭 중 하나를 선택합니다. 로어북·정규식·트리거는 목록에서 항목을 고르거나 ➕ 새 항목으로 새로 만듭니다.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">5</span>요청 작성 → AI 실행<span class="chev">▾</span></summary>
+        <div class="body">원하는 방향을 요청사항에 적고 ✨ AI 실행을 누릅니다. 비워두면 전반적인 품질 개선을 요청합니다. 결과가 나오면 🖍 변경 부분 보기로 달라진 곳만 확인하세요.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">6</span>결과 수정 → 이어서 개선<span class="chev">▾</span></summary>
+        <div class="body">결과 텍스트박스에서 직접 수정할 수 있습니다. 추가 요청을 입력하고 ✨ 이어서 개선을 누르면 현재 결과를 바탕으로 다시 다듬습니다. 만족할 때까지 반복할 수 있습니다.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">7</span>적용 · 되돌리기<span class="chev">▾</span></summary>
+        <div class="body">✅ 캐릭터에 적용을 누르면 즉시 저장됩니다. 생각이 바뀌면 ↩️ 되돌리기로 적용 이전 상태로 언제든 복원할 수 있습니다.</div>
+      </details>
+
+      <details class="step">
+        <summary><span class="num">8</span>참고범위로 일관성 챙기기<span class="chev">▾</span></summary>
+        <div class="body">사이드바 📌 참고범위에서 체크한 항목이 AI 요청에 함께 전달됩니다. 예를 들어 설명과 로어북을 체크하면, 로어북 수정 시 캐릭터 설명과 어긋나지 않도록 AI가 참고합니다.</div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="section-card">
+      <div class="section-head">
+        <h2>팁</h2>
+        <p>알아두면 더 편해지는 것들.</p>
+      </div>
+      <div class="tip-list">
+
+        <div class="tip">
+          <span class="t-icon">⭐</span>
+          <p><strong>즐겨찾기 요청</strong> — 요청 입력창 옆 ⭐ 저장을 누르면 해당 문구가 즐겨찾기에 등록됩니다. 이후 드롭다운에서 바로 불러올 수 있어 반복 작업이 훨씬 빠릅니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="t-icon">📋</span>
+          <p><strong>캐릭터 프리셋</strong> — 설정 탭 &gt; 캐릭터 프리셋 관리에서 상호작용형·자기소개형 외에 직접 프리셋을 추가할 수 있습니다. 설명 탭에서 선택한 프리셋이 AI 출력 형식에 반영됩니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="t-icon">🎭</span>
+          <p><strong>페르소나 프리셋</strong> — 설정 탭 &gt; 페르소나 프리셋 관리에서 기본·심화 프리셋을 편집하거나 새 프리셋을 만들 수 있습니다. <code>{{char}}</code>, <code>{{description}}</code>, <code>{{user}}</code> 변수를 사용할 수 있습니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="t-icon">🧩</span>
+          <p><strong>정규식·트리거는 JSON 확인 필수</strong> — AI 결과도 JSON 구조를 유지하지만, 적용 전에 형식이 올바른지 한 번 확인해주세요. 편집기에서 직접 수정도 가능합니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="t-icon">🌐</span>
+          <p><strong>영문 번역</strong> — 설명과 로어북 탭에서 원본을 번역하거나, AI 결과를 바로 번역할 수 있습니다. 번역 결과를 직접 캐릭터에 덮어쓰거나 클립보드로 복사할 수 있습니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="t-icon">👤</span>
+          <p><strong>캐릭터 기본정보 오버라이드</strong> — 설명 탭 상단의 이름·나이·성별·장르 입력란을 채우면 AI가 해당 정보를 최우선 반영합니다. 비워두면 기존 설명을 그대로 따릅니다.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVIDERS -->
+  <section id="providers">
+    <div class="section-card">
+      <div class="section-head">
+        <h2>지원 공급자</h2>
+        <p>원하는 AI 공급자를 선택하고, 모델명은 직접 입력할 수 있습니다.</p>
+      </div>
+      <div class="chip-row">
+        <span class="chip">⚡ Cerebras</span>
+        <span class="chip">🔷 Google AI Studio (Gemini)</span>
+        <span class="chip">☁️ Vertex AI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
   <div class="download-section">
     <a class="download-btn" href="https://drive.proton.me/urls/FQ14Y7RYQG#KgjvlXuTUJbJ" target="_blank" rel="noopener noreferrer">⬇ CharAssist 다운로드</a>
     <div class="download-note">Proton Drive에서 최신 버전을 받을 수 있습니다</div>
   </div>
 
   <footer>CharAssist — a RisuAI plugin</footer>
+
 </div>
 </body>
 </html>
