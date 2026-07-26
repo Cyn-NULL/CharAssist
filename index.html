@@ -12,7 +12,6 @@
     --muted:#63656f;
     --muted-2:#8b8d97;
     --card:rgba(255,255,255,0.58);
-    --card-solid:#f6f6f1;
     --line:rgba(24,25,32,0.09);
     --accent:#4a6cf7;
     --accent-2:#7fa0ff;
@@ -20,7 +19,6 @@
     --radius-md:18px;
     --radius-sm:12px;
   }
-
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -30,14 +28,13 @@
     background:
       radial-gradient(circle at 12% 8%, #e9ecc8 0%, transparent 45%),
       radial-gradient(circle at 88% 92%, #d9dcef 0%, transparent 50%),
-      linear-gradient(135deg,#e6e8c9 0%, #dcdeda 45%, #d7d8ea 100%);
+      linear-gradient(135deg,#e6e8c9 0%,#dcdeda 45%,#d7d8ea 100%);
     background-attachment:fixed;
     min-height:100vh;
   }
-
   .wrap{max-width:1000px;margin:0 auto;padding:40px 24px 100px;}
 
-  /* ---------- Hero ---------- */
+  /* ── Hero ── */
   .hero{
     background:var(--card);
     backdrop-filter:blur(18px);
@@ -49,225 +46,123 @@
   }
   .hero-badge{
     display:inline-flex;align-items:center;gap:10px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:12.5px;letter-spacing:.04em;
-    color:var(--muted);
-    background:rgba(255,255,255,0.6);
-    border:1px solid var(--line);
-    padding:6px 14px 6px 8px;
-    border-radius:999px;
-    margin-bottom:22px;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);background:rgba(255,255,255,0.6);
+    border:1px solid var(--line);padding:6px 14px 6px 8px;border-radius:999px;margin-bottom:22px;
   }
   .hero-badge .dot{
     width:26px;height:26px;border-radius:50%;
     background:linear-gradient(140deg,var(--accent-2),var(--accent));
-    display:flex;align-items:center;justify-content:center;
-    font-size:13px;
+    display:flex;align-items:center;justify-content:center;font-size:13px;
   }
   h1.title{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:clamp(48px,8vw,92px);
-    line-height:0.95;
-    margin:0 0 18px;
-    letter-spacing:-0.02em;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(48px,8vw,92px);line-height:0.95;
+    margin:0 0 18px;letter-spacing:-0.02em;
   }
-  .tagline{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:500;
-    font-size:20px;
-    color:var(--ink);
-    margin:0 0 14px;
-  }
-  .desc{
-    max-width:660px;
-    color:var(--muted);
-    font-size:15.5px;
-    line-height:1.7;
-    margin:0;
-  }
+  .tagline{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:20px;color:var(--ink);margin:0 0 14px;}
+  .hero-desc{max-width:660px;color:var(--muted);font-size:15.5px;line-height:1.7;margin:0;}
 
-  /* ---------- Section card ---------- */
-  .section-card{
-    background:var(--card);
-    border:1px solid rgba(255,255,255,0.7);
-    border-radius:var(--radius-md);
-    backdrop-filter:blur(14px);
-    overflow:hidden;
-    margin-bottom:20px;
+  /* ── Card ── */
+  .card{
+    background:var(--card);border:1px solid rgba(255,255,255,0.7);
+    border-radius:var(--radius-md);backdrop-filter:blur(14px);overflow:hidden;margin-bottom:20px;
   }
-  .section-head{
-    padding:26px 28px 6px;
-  }
-  .section-head h2{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:22px;font-weight:700;margin:0 0 4px;
-  }
-  .section-head p{
-    color:var(--muted);font-size:13.5px;margin:0 0 14px;
-  }
+  .card-head{padding:26px 28px 8px;}
+  .card-head h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin:0 0 4px;}
+  .card-head p{color:var(--muted);font-size:13.5px;margin:0 0 14px;}
 
-  /* ---------- Feature grid ---------- */
-  .feat-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:1px;
-    background:var(--line);
-  }
+  /* ── Feature grid ── */
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--line);}
   .feat-cell{
-    background:rgba(255,255,255,0.45);
-    padding:20px 22px;
-    display:flex;gap:14px;align-items:flex-start;
-    transition:background .15s;
+    background:rgba(255,255,255,0.45);padding:20px 22px;
+    display:flex;gap:13px;align-items:flex-start;transition:background .15s;
   }
   .feat-cell:hover{background:rgba(255,255,255,0.72);}
-  .feat-cell .icon{
-    width:34px;height:34px;border-radius:9px;
-    background:rgba(74,108,247,0.1);
-    display:flex;align-items:center;justify-content:center;
-    font-size:16px;flex:none;margin-top:2px;
+  .feat-cell .fi{
+    width:34px;height:34px;border-radius:9px;background:rgba(74,108,247,0.1);
+    display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;margin-top:2px;
   }
   .feat-cell h3{font-size:14px;font-weight:600;margin:0 0 4px;}
   .feat-cell p{font-size:13px;color:var(--muted);line-height:1.6;margin:0;}
   .new-tag{
-    display:inline-block;
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;font-weight:500;letter-spacing:.04em;
-    color:var(--accent);
-    background:rgba(74,108,247,0.1);
-    border:1px solid rgba(74,108,247,0.25);
-    border-radius:4px;padding:1px 6px;
-    margin-bottom:5px;
+    display:inline-block;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.04em;color:var(--accent);
+    background:rgba(74,108,247,0.1);border:1px solid rgba(74,108,247,0.25);
+    border-radius:4px;padding:1px 6px;margin-bottom:5px;
   }
 
-  /* ---------- Tab grid ---------- */
-  .tab-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1px;
-    background:var(--line);
-  }
-  @media(max-width:600px){.tab-grid{grid-template-columns:1fr;}}
-  .tab-cell{
-    background:rgba(255,255,255,0.45);
-    padding:22px 24px;
-    transition:background .15s;
-  }
+  /* ── Tab grid ── */
+  .tab-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);}
+  @media(max-width:600px){.tab-grid,.feat-grid{grid-template-columns:1fr;}}
+  .tab-cell{background:rgba(255,255,255,0.45);padding:22px 24px;transition:background .15s;}
   .tab-cell:hover{background:rgba(255,255,255,0.68);}
   .tab-cell.full{grid-column:1/-1;}
-  .tab-cell.accent-cell{background:rgba(74,108,247,0.06);}
-  .tab-cell.accent-cell:hover{background:rgba(74,108,247,0.11);}
-  .tab-label{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'Space Grotesk',sans-serif;
-    font-size:14px;font-weight:700;
-    margin-bottom:10px;
-  }
+  .tab-cell.hi{background:rgba(74,108,247,0.06);}
+  .tab-cell.hi:hover{background:rgba(74,108,247,0.11);}
+  .tab-label{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;margin-bottom:10px;}
   .tab-cell p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 10px;}
   .pill-row{display:flex;flex-wrap:wrap;gap:6px;}
   .pill{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;padding:3px 9px;border-radius:999px;
-    background:rgba(255,255,255,0.7);border:1px solid var(--line);
-    color:var(--ink);
+    font-family:'JetBrains Mono',monospace;font-size:11px;padding:3px 9px;border-radius:999px;
+    background:rgba(255,255,255,0.7);border:1px solid var(--line);color:var(--ink);
   }
-  .pill.blue{
-    background:rgba(74,108,247,0.08);
-    border-color:rgba(74,108,247,0.2);
-    color:var(--accent);
-  }
+  .pill.blue{background:rgba(74,108,247,0.08);border-color:rgba(74,108,247,0.2);color:var(--accent);}
 
-  /* ---------- Steps accordion ---------- */
+  /* ── Steps ── */
   details.step{border-top:1px solid var(--line);}
   details.step summary{
-    list-style:none;cursor:pointer;
+    list-style:none;cursor:pointer;user-select:none;
     display:flex;align-items:center;gap:14px;
-    padding:16px 28px;
-    font-size:14.5px;font-weight:600;
-    user-select:none;
+    padding:16px 28px;font-size:14.5px;font-weight:600;
   }
   details.step summary::-webkit-details-marker{display:none;}
   details.step summary .num{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;color:var(--accent);
-    width:26px;height:26px;border-radius:50%;
-    border:1px solid rgba(74,108,247,0.4);
-    display:flex;align-items:center;justify-content:center;
-    flex:none;
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);
+    width:26px;height:26px;border-radius:50%;border:1px solid rgba(74,108,247,0.4);
+    display:flex;align-items:center;justify-content:center;flex:none;
   }
-  details.step summary .chev{
-    margin-left:auto;color:var(--muted-2);
-    transition:transform .2s ease;font-size:13px;
-  }
+  details.step summary .chev{margin-left:auto;color:var(--muted-2);transition:transform .2s;font-size:13px;}
   details.step[open] summary .chev{transform:rotate(180deg);}
-  details.step .body{
-    padding:0 28px 20px 68px;
-    font-size:13.5px;color:var(--muted);line-height:1.7;
-  }
+  details.step .body{padding:0 28px 20px 68px;font-size:13.5px;color:var(--muted);line-height:1.7;}
   details.step .body code{
     font-family:'JetBrains Mono',monospace;font-size:12px;
-    background:rgba(74,108,247,0.08);border-radius:4px;
-    padding:1px 6px;color:var(--accent);
+    background:rgba(74,108,247,0.08);border-radius:4px;padding:1px 6px;color:var(--accent);
   }
 
-  /* ---------- Tips ---------- */
+  /* ── Tips ── */
   .tip-list{padding:4px 0 6px;}
-  .tip{
-    display:flex;gap:14px;align-items:flex-start;
-    padding:16px 28px;
-    border-top:1px solid var(--line);
-  }
-  .tip .t-icon{font-size:16px;flex-shrink:0;padding-top:2px;}
+  .tip{display:flex;gap:14px;align-items:flex-start;padding:16px 28px;border-top:1px solid var(--line);}
+  .tip .ti{font-size:16px;flex-shrink:0;padding-top:2px;}
   .tip p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0;}
   .tip p strong{color:var(--ink);}
   .tip p code{
     font-family:'JetBrains Mono',monospace;font-size:12px;
-    background:rgba(74,108,247,0.08);border-radius:4px;
-    padding:1px 6px;color:var(--accent);
+    background:rgba(74,108,247,0.08);border-radius:4px;padding:1px 6px;color:var(--accent);
   }
 
-  /* ---------- Provider chips ---------- */
+  /* ── Providers ── */
   .chip-row{padding:4px 28px 24px;display:flex;gap:8px;flex-wrap:wrap;}
   .chip{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;padding:6px 14px;border-radius:999px;
-    background:rgba(255,255,255,0.7);border:1px solid var(--line);
-    color:var(--ink);
+    font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 14px;border-radius:999px;
+    background:rgba(255,255,255,0.7);border:1px solid var(--line);color:var(--ink);
   }
 
-  /* ---------- Download ---------- */
-  .download-section{text-align:center;margin-top:16px;}
-  .download-btn{
+  /* ── Download ── */
+  .dl-wrap{text-align:center;margin-top:16px;}
+  .dl-btn{
     display:inline-flex;align-items:center;gap:10px;
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;font-size:16px;
-    color:#fff;
-    background:linear-gradient(140deg,var(--accent-2),var(--accent));
-    padding:16px 34px;
-    border-radius:999px;
-    text-decoration:none;
-    box-shadow:0 16px 34px -14px rgba(74,108,247,0.6);
-    transition:transform .15s ease,box-shadow .15s ease;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;
+    color:#fff;background:linear-gradient(140deg,var(--accent-2),var(--accent));
+    padding:16px 34px;border-radius:999px;text-decoration:none;
+    box-shadow:0 16px 34px -14px rgba(74,108,247,0.6);transition:transform .15s,box-shadow .15s;
   }
-  .download-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 20px 40px -14px rgba(74,108,247,0.7);
-  }
-  .download-note{
-    margin-top:12px;font-size:12px;color:var(--muted-2);
-    font-family:'JetBrains Mono',monospace;
-  }
+  .dl-btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(74,108,247,0.7);}
+  .dl-note{margin-top:12px;font-size:12px;color:var(--muted-2);font-family:'JetBrains Mono',monospace;}
 
-  footer{
-    text-align:center;margin-top:60px;
-    font-size:12px;color:var(--muted-2);
-    font-family:'JetBrains Mono',monospace;
-  }
+  footer{text-align:center;margin-top:60px;font-size:12px;color:var(--muted-2);font-family:'JetBrains Mono',monospace;}
 
-  @media(max-width:640px){
-    .hero{padding:36px 26px 32px;}
-    .feat-grid{grid-template-columns:1fr;}
-  }
+  @media(max-width:640px){.hero{padding:36px 26px 32px;}}
 </style>
 </head>
 <body>
@@ -275,23 +170,23 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-badge"><span class="dot">🛠️</span> RisuAI Plugin · CharAssist</div>
+    <div class="hero-badge"><span class="dot">🛠️</span> RisuAI Plugin · CharAssist v1.3</div>
     <h1 class="title">CharAssist</h1>
     <p class="tagline">AI가 다듬고, 당신이 결정한다.</p>
-    <p class="desc">캐릭터 설명, 로어북, 정규식, 트리거, 페르소나까지 — AI와 함께 편집하고, 바뀐 부분을 한눈에 확인하고, 언제든 되돌릴 수 있습니다.</p>
+    <p class="hero-desc">캐릭터 설명, 로어북, 정규식, 트리거, 페르소나까지 — AI와 함께 편집하고, 바뀐 부분을 한눈에 확인하고, 언제든 되돌릴 수 있습니다.</p>
   </div>
 
   <!-- FEATURES -->
   <section id="features">
-    <div class="section-card">
-      <div class="section-head">
+    <div class="card">
+      <div class="card-head">
         <h2>주요 기능</h2>
         <p>편집부터 검토, 되돌리기까지 하나의 흐름으로.</p>
       </div>
       <div class="feat-grid">
 
         <div class="feat-cell">
-          <div class="icon">🖍</div>
+          <div class="fi">🖍</div>
           <div>
             <h3>바뀐 부분 하이라이트</h3>
             <p>AI가 손댄 곳만 형광펜으로 표시됩니다. 전체를 다시 읽지 않아도 무엇이 달라졌는지 바로 파악할 수 있습니다.</p>
@@ -299,7 +194,7 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">↩️</div>
+          <div class="fi">↩️</div>
           <div>
             <h3>언제든 되돌리기</h3>
             <p>적용한 뒤에도 한 번의 클릭으로 직전 상태로 복원됩니다. 실수가 두렵지 않습니다.</p>
@@ -307,7 +202,15 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">💾</div>
+          <div class="fi">✨</div>
+          <div>
+            <h3>이어서 개선 모드</h3>
+            <p>AI 결과를 바탕으로 추가 요청을 입력해 계속 다듬을 수 있습니다. 처음부터 다시 시작할 필요가 없습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="fi">💾</div>
           <div>
             <h3>작업 내용 자동 보존</h3>
             <p>창을 닫아도 AI 결과와 요청사항이 저장됩니다. 나중에 열어 이어서 검토할 수 있습니다.</p>
@@ -315,24 +218,34 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">✨</div>
-          <div>
-            <h3>이어서 개선 모드</h3>
-            <p>AI 결과를 바탕으로 추가 요청을 입력하면 계속 다듬을 수 있습니다. 처음부터 다시 시작할 필요 없습니다.</p>
-          </div>
-        </div>
-
-        <div class="feat-cell">
-          <div class="icon">🎭</div>
+          <div class="fi">🎭</div>
           <div>
             <div class="new-tag">NEW</div>
-            <h3>페르소나 생성</h3>
-            <p>장르·힌트·기본 정보를 입력하면 AI가 캐릭터에 맞는 유저 페르소나를 창작합니다. 기본·심화 두 가지 프리셋 제공.</p>
+            <h3>페르소나 직접 편집</h3>
+            <p>기존 페르소나를 선택해 내용을 직접 수정하거나, AI로 개선하고 바로 저장할 수 있습니다.</p>
           </div>
         </div>
 
         <div class="feat-cell">
-          <div class="icon">📋</div>
+          <div class="fi">🗂️</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>이미지 갤러리</h3>
+            <p>이미지를 업로드해 갤러리에 보관하고, 페르소나 아이콘으로 설정하거나 JSON으로 백업·복원할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="fi">🔗</div>
+          <div>
+            <div class="new-tag">NEW</div>
+            <h3>PersonaBind</h3>
+            <p>채팅 입력창에 현재 페르소나의 이름과 이미지를 위젯으로 표시합니다. 새 채팅 시작 시 자동 고정도 지원합니다.</p>
+          </div>
+        </div>
+
+        <div class="feat-cell">
+          <div class="fi">📋</div>
           <div>
             <div class="new-tag">NEW</div>
             <h3>캐릭터 프리셋</h3>
@@ -341,7 +254,7 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">🌐</div>
+          <div class="fi">🌐</div>
           <div>
             <div class="new-tag">NEW</div>
             <h3>영문 번역</h3>
@@ -350,7 +263,7 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">👤</div>
+          <div class="fi">👤</div>
           <div>
             <div class="new-tag">NEW</div>
             <h3>기본정보 오버라이드</h3>
@@ -359,7 +272,7 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">⭐</div>
+          <div class="fi">⭐</div>
           <div>
             <h3>즐겨찾는 요청 문구</h3>
             <p>자주 쓰는 요청을 저장해두면 드롭다운에서 바로 선택할 수 있습니다. 모든 탭에서 공유됩니다.</p>
@@ -367,26 +280,10 @@
         </div>
 
         <div class="feat-cell">
-          <div class="icon">📌</div>
+          <div class="fi">📌</div>
           <div>
             <h3>참고범위 지정</h3>
             <p>로어북 편집 시 설명을 함께 참고하게 하는 등, 다른 영역을 컨텍스트로 포함해 일관성 있는 결과를 얻을 수 있습니다.</p>
-          </div>
-        </div>
-
-        <div class="feat-cell">
-          <div class="icon">🔌</div>
-          <div>
-            <h3>멀티 AI 공급자</h3>
-            <p>Cerebras, Gemini, Vertex AI, GemTi 중 선택. 모델명을 직접 입력해 최신 모델도 바로 사용할 수 있습니다.</p>
-          </div>
-        </div>
-
-        <div class="feat-cell">
-          <div class="icon">➕</div>
-          <div>
-            <h3>새 항목 만들기</h3>
-            <p>로어북·정규식·트리거를 빈 상태로 추가하고 요청하면 AI가 처음부터 초안을 작성합니다.</p>
           </div>
         </div>
 
@@ -396,9 +293,9 @@
 
   <!-- TABS -->
   <section id="tabs">
-    <div class="section-card">
-      <div class="section-head">
-        <h2>다섯 개의 탭, 하나의 캐릭터.</h2>
+    <div class="card">
+      <div class="card-head">
+        <h2>일곱 개의 탭, 하나의 캐릭터.</h2>
         <p>각 탭은 독립적으로 동작하지만 참고범위로 서로 연결됩니다.</p>
       </div>
       <div class="tab-grid">
@@ -443,16 +340,39 @@
           </div>
         </div>
 
-        <div class="tab-cell full accent-cell">
-          <div class="tab-label">🎭 페르소나 <span class="pill blue" style="font-size:10px;padding:2px 7px;margin-left:2px;">NEW</span></div>
-          <p>캐릭터 설명을 분석해 유저 페르소나를 AI로 창작합니다. 장르(일상·로맨스·판타지 등 12종), 컨셉 힌트, 이름·나이·성별을 지정하거나 AI에게 자유롭게 맡길 수 있습니다. 기본 프리셋과 심화 프리셋(상세 시트) 중 선택하거나, 설정에서 직접 만들 수 있습니다.</p>
+        <div class="tab-cell hi">
+          <div class="tab-label">🎭 페르소나 <span class="pill blue" style="font-size:10px;padding:2px 7px;margin-left:2px;">업데이트</span></div>
+          <p>AI로 유저 페르소나를 창작하거나, 기존 페르소나를 선택해 직접 수정하고 바로 저장할 수 있습니다. 장르(12종), 컨셉 힌트, 기본·심화 프리셋을 지원합니다.</p>
           <div class="pill-row">
+            <span class="pill">신규 생성</span>
+            <span class="pill">기존 편집 · 저장</span>
+            <span class="pill">AI 개선</span>
             <span class="pill">장르 12종</span>
-            <span class="pill">컨셉 힌트</span>
-            <span class="pill">기본·심화 프리셋</span>
             <span class="pill">이어서 개선</span>
             <span class="pill">영문 번역</span>
-            <span class="pill">클립보드 복사</span>
+          </div>
+        </div>
+
+        <div class="tab-cell hi">
+          <div class="tab-label">🗂️ 이미지 갤러리 <span class="pill blue" style="font-size:10px;padding:2px 7px;margin-left:2px;">NEW</span></div>
+          <p>이미지를 업로드해 갤러리에 보관합니다. 페르소나 탭에서 이미지를 선택해 아이콘으로 설정하거나, 리수 페르소나 이미지를 갤러리로 백업할 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">다중 업로드</span>
+            <span class="pill">페르소나 아이콘 설정</span>
+            <span class="pill">JSON 백업 · 복원</span>
+            <span class="pill">리수 페르소나 이미지 연동</span>
+          </div>
+        </div>
+
+        <div class="tab-cell full hi">
+          <div class="tab-label">⚙️ 설정 <span class="pill blue" style="font-size:10px;padding:2px 7px;margin-left:2px;">업데이트</span></div>
+          <p>AI 공급자, PersonaBind, 캐릭터·페르소나 프리셋을 한곳에서 관리합니다. PersonaBind 설정에서 채팅 입력창에 이름·이미지 위젯을 표시하고, 새 채팅 시 자동 고정 여부를 선택할 수 있습니다.</p>
+          <div class="pill-row">
+            <span class="pill">AI 공급자 · 모델 설정</span>
+            <span class="pill">연결 테스트</span>
+            <span class="pill">🔗 PersonaBind</span>
+            <span class="pill">캐릭터 프리셋 관리</span>
+            <span class="pill">페르소나 프리셋 관리</span>
           </div>
         </div>
 
@@ -462,8 +382,8 @@
 
   <!-- GETTING STARTED -->
   <section id="start">
-    <div class="section-card">
-      <div class="section-head">
+    <div class="card">
+      <div class="card-head">
         <h2>시작하기</h2>
         <p>순서대로 눌러서 진행하세요. 각 단계를 펼치면 자세한 설명이 나옵니다.</p>
       </div>
@@ -508,46 +428,56 @@
         <div class="body">사이드바 📌 참고범위에서 체크한 항목이 AI 요청에 함께 전달됩니다. 예를 들어 설명과 로어북을 체크하면, 로어북 수정 시 캐릭터 설명과 어긋나지 않도록 AI가 참고합니다.</div>
       </details>
 
+      <details class="step">
+        <summary><span class="num">9</span>이미지 갤러리 & PersonaBind 설정<span class="chev">▾</span></summary>
+        <div class="body">🗂️ 이미지 갤러리 탭에서 이미지를 업로드하면 페르소나 탭에서 아이콘으로 선택할 수 있습니다. ⚙️ 설정 탭 &gt; 🔗 PersonaBind에서 채팅 입력창에 이름·이미지 위젯 표시 여부와 자동 고정을 설정하세요.</div>
+      </details>
+
     </div>
   </section>
 
   <!-- TIPS -->
   <section id="tips">
-    <div class="section-card">
-      <div class="section-head">
+    <div class="card">
+      <div class="card-head">
         <h2>팁</h2>
         <p>알아두면 더 편해지는 것들.</p>
       </div>
       <div class="tip-list">
 
         <div class="tip">
-          <span class="t-icon">⭐</span>
+          <span class="ti">🗂️</span>
+          <p><strong>이미지 갤러리 먼저</strong> — 페르소나에 이미지를 설정하려면 🗂️ 이미지 갤러리 탭에서 먼저 업로드해야 합니다. 갤러리에 이미지가 있으면 페르소나 탭 저장 화면에서 바로 선택할 수 있습니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="ti">🔗</span>
+          <p><strong>PersonaBind 위젯</strong> — 설정 탭 &gt; PersonaBind에서 이름·이미지 위젯을 켜두면, 채팅 입력창에 현재 페르소나가 표시됩니다. 채팅에 바인드된 페르소나가 있으면 그 페르소나를 우선 표시합니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="ti">🎭</span>
+          <p><strong>페르소나 직접 편집</strong> — 페르소나 탭 &gt; 기존 편집 모드에서 리수 페르소나를 선택하면 현재 내용을 불러옵니다. AI로 개선하거나 텍스트박스에서 직접 수정 후 💾 이 내용으로 저장을 누르면 바로 반영됩니다.</p>
+        </div>
+
+        <div class="tip">
+          <span class="ti">⭐</span>
           <p><strong>즐겨찾기 요청</strong> — 요청 입력창 옆 ⭐ 저장을 누르면 해당 문구가 즐겨찾기에 등록됩니다. 이후 드롭다운에서 바로 불러올 수 있어 반복 작업이 훨씬 빠릅니다.</p>
         </div>
 
         <div class="tip">
-          <span class="t-icon">📋</span>
-          <p><strong>캐릭터 프리셋</strong> — 설정 탭 &gt; 캐릭터 프리셋 관리에서 상호작용형·자기소개형 외에 직접 프리셋을 추가할 수 있습니다. 설명 탭에서 선택한 프리셋이 AI 출력 형식에 반영됩니다.</p>
+          <span class="ti">📋</span>
+          <p><strong>캐릭터 · 페르소나 프리셋</strong> — 설정 탭에서 직접 프리셋을 추가하거나 편집할 수 있습니다. 페르소나 프리셋에는 <code>{{char}}</code>, <code>{{description}}</code>, <code>{{user}}</code> 변수를 사용할 수 있습니다.</p>
         </div>
 
         <div class="tip">
-          <span class="t-icon">🎭</span>
-          <p><strong>페르소나 프리셋</strong> — 설정 탭 &gt; 페르소나 프리셋 관리에서 기본·심화 프리셋을 편집하거나 새 프리셋을 만들 수 있습니다. <code>{{char}}</code>, <code>{{description}}</code>, <code>{{user}}</code> 변수를 사용할 수 있습니다.</p>
-        </div>
-
-        <div class="tip">
-          <span class="t-icon">🧩</span>
+          <span class="ti">🧩</span>
           <p><strong>정규식·트리거는 JSON 확인 필수</strong> — AI 결과도 JSON 구조를 유지하지만, 적용 전에 형식이 올바른지 한 번 확인해주세요. 편집기에서 직접 수정도 가능합니다.</p>
         </div>
 
         <div class="tip">
-          <span class="t-icon">🌐</span>
+          <span class="ti">🌐</span>
           <p><strong>영문 번역</strong> — 설명과 로어북 탭에서 원본을 번역하거나, AI 결과를 바로 번역할 수 있습니다. 번역 결과를 직접 캐릭터에 덮어쓰거나 클립보드로 복사할 수 있습니다.</p>
-        </div>
-
-        <div class="tip">
-          <span class="t-icon">👤</span>
-          <p><strong>캐릭터 기본정보 오버라이드</strong> — 설명 탭 상단의 이름·나이·성별·장르 입력란을 채우면 AI가 해당 정보를 최우선 반영합니다. 비워두면 기존 설명을 그대로 따릅니다.</p>
         </div>
 
       </div>
@@ -556,8 +486,8 @@
 
   <!-- PROVIDERS -->
   <section id="providers">
-    <div class="section-card">
-      <div class="section-head">
+    <div class="card">
+      <div class="card-head">
         <h2>지원 공급자</h2>
         <p>원하는 AI 공급자를 선택하고, 모델명은 직접 입력할 수 있습니다. GemTi는 리프레시 토큰으로 연결합니다.</p>
       </div>
@@ -571,9 +501,9 @@
   </section>
 
   <!-- DOWNLOAD -->
-  <div class="download-section">
-    <a class="download-btn" href="https://drive.proton.me/urls/FQ14Y7RYQG#KgjvlXuTUJbJ" target="_blank" rel="noopener noreferrer">⬇ CharAssist 다운로드</a>
-    <div class="download-note">Proton Drive에서 최신 버전을 받을 수 있습니다</div>
+  <div class="dl-wrap">
+    <a class="dl-btn" href="https://drive.proton.me/urls/FQ14Y7RYQG#KgjvlXuTUJbJ" target="_blank" rel="noopener noreferrer">⬇ CharAssist 다운로드</a>
+    <div class="dl-note">Proton Drive에서 최신 버전을 받을 수 있습니다</div>
   </div>
 
   <footer>CharAssist — a RisuAI plugin</footer>
